@@ -1,0 +1,132 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  // Boxicons
+  link(href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet')
+  // My CSS
+  link(rel='stylesheet' href='/my_css/dash.css')
+  title DockVille
+// SIDEBAR
+section#sidebar
+  a.brand(href='/admindash.pug')
+    i.bx.bxs-car
+    span.text DockVille
+  ul.side-menu.top
+    li.active
+      a(href='./admindash.pug')
+        i.bx.bxs-dashboard
+        span.text Dashboard
+    li
+      a(href='views/cardash.pug')
+        i.bx.bxs-car
+        span.text Parking-lot
+    li
+      a(href='./batterydash.pug')
+        i.bx.bxs-battery
+        span.text battery-section
+    li
+      a(href='./tyredash.pug')
+        i.bx.bxs-gas-pump
+        span.text Car Tyre Clinic
+  ul.side-menu
+    a.logout(href='/landing.pug')
+      i.bx.bxs-log-out-circle
+      span.text Logout
+// SIDEBAR
+// CONTENT
+section#content
+  // NAVBAR  STARTS
+  nav
+    i.bx.bx-menu
+    form(action='#')
+      .form-input
+        input(type='search' placeholder='Search...')
+        button.search-btn(type='submit')
+          i.bx.bx-search
+    input#switch-mode(type='checkbox' hidden='')
+    label.switch-mode(for='switch-mode')
+    a.profile(href='#')
+      img(src='img/people.png')
+  // NAVBAR ENDS HERE
+  // MAIN
+  main
+    .head-title
+      .left
+        h1 Dashboard
+        ul.breadcrumb
+          li
+            a(href='#') Dashboard
+          li
+            i.bx.bx-chevron-right
+          li
+            a.active(href='#') Home
+    ul.box-info
+      li
+        i.bx.bxs-car
+        span.text
+          h3 Parking lot
+          button.btn.btn-primary(type='button' style='background-color: #3C91E6;')
+            | Add
+            | User
+    .table-data
+      .order
+        .head
+          h3 Parking-lot Activities
+        table
+          thead
+            tr
+              th Name
+              th Phone number
+              th Number Plate
+              th Status
+              th Date
+          tbody
+            tr
+              td
+                img(src='img/people.png')
+                p Emily Sande
+              td 0773498672
+              td 04-08-2023
+              td
+                span.status.completed Completed
+              td 07-08-2023
+            tr
+              td
+                img(src='img/pc3.jpg')
+                p Mukasa David
+              td 0773443672
+              td 03-08-2023
+              td
+                span.status.pending Pending
+              td 07-08-2023
+            tr
+              td
+                img(src='img/pic2.jpg')
+                p Dennis Kibuuka
+              td 0773498354
+              td 01-10-2021
+              td
+                span.status.process Process
+              td 07-08-2023
+            tr
+              td
+                img(src='img/pic1.jpg')
+                p Patrick Mukasa
+              td 0762465672
+              td 05-08-2023
+              td
+                span.status.pending Pending
+              td 07-08-2023
+            tr
+              td
+                img(src='img/pic4.jpg')
+                p Leonard George
+              td 0773495724
+              td 07-08-2023
+              td
+                span.status.completed Completed
+              td 07-08-2023
+  // MAIN
+// CONTENT
+script(src='.js')

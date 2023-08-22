@@ -1,0 +1,141 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  // Boxicons
+  link(href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet')
+  // My CSS
+  link(rel='stylesheet' href='/my_css/dash.css')
+  title DockVille
+// SIDEBAR
+section#sidebar
+  a.brand(href='./admindash.html')
+    i.bx.bxs-car
+    span.text DockVille
+  ul.side-menu.top
+    li.active
+      a(href='./admindash.html')
+        i.bx.bxs-dashboard
+        span.text Dashboard
+    li
+      a(href='./parkdash.html')
+        i.bx.bxs-car
+        span.text Parking-lot
+    li
+      a(href='./batterydash.html')
+        i.bx.bxs-battery
+        span.text battery-section
+    li
+      a(href='./tyredash.html')
+        i.bx.bxs-gas-pump
+        span.text Car Tyre Clinic
+  ul.side-menu
+    a.logout(href='#')
+      i.bx.bxs-log-out-circle
+      span.text Logout
+// SIDEBAR
+// CONTENT
+section#content
+  // NAVBAR  STARTS
+  nav
+    i.bx.bx-menu
+    form(action='#')
+      .form-input
+        // <input type="search" placeholder="Search...">
+        button.search-btn(type='submit')
+          i.bx.bx-search
+    input#switch-mode(type='checkbox' hidden='')
+    label.switch-mode(for='switch-mode')
+    a.profile(href='#')
+      img(src='img/people.png')
+  // NAVBAR ENDS HERE
+  // MAIN
+  main
+    .head-title
+      .left
+        h1 Welcome Manager,
+        ul.breadcrumb
+          li
+            a(href='./admindash.html') Dashboard
+          li
+            i.bx.bx-chevron-right
+          li
+            a.active(href='./admindash.html') Home
+    ul.box-info
+      li
+        a(href='./parkdash.html')
+          i.bx.bxs-car
+          span.text
+            h3 Parking lot
+            p 300 vehicles
+            p Total revenue
+      li
+        a(href='./tyredash.html')
+          i.bx.bxs-gas-pump
+          span.text
+            h3 Car Tyre Clinic
+            p  20 activities
+            p Total revenue
+      li
+        a(href='./batterydash.html')
+          i.bx.bxs-battery
+          span.text
+            h3 Battery section
+            p 13 Orders
+            p Total revenue
+    .table-data
+      .order
+        .head
+          h3 Employee table
+        table
+          thead
+            tr
+              th First name
+              th Phone number
+              th Email
+              th Address
+              th Role
+          tbody
+            tr
+              td
+                img(src='img/people.png')
+                p Emily Sande
+              td 0773498672
+              td 04-08-2023
+              td Address
+              td Worker
+            tr
+              td
+                img(src='img/pc3.jpg')
+                p Mukasa David
+              td 0773443672
+              td 03-08-2023
+              td Address
+              td Worker
+            tr
+              td
+                img(src='img/pic2.jpg')
+                p Dennis Kibuuka
+              td 0773498354
+              td 01-10-2021
+              td Address
+              td Worker
+            tr
+              td
+                img(src='img/pic1.jpg')
+                p Patrick Mukasa
+              td 0762465672
+              td 05-08-2023
+              td Address
+              td Worker
+            tr
+              td
+                img(src='img/pic4.jpg')
+                p Leonard George
+              td 0773495724
+              td 07-08-2023
+              td Address
+              td Worker
+  // MAIN
+// CONTENT
+script(src='empdashscriptscript.js')
