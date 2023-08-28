@@ -2,11 +2,10 @@ doctype html
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  link(rel='stylesheet' href='/bootstrap-5.3.1-dist/css/bootstrap.css')
-  link(rel='stylesheet' href='/my_css/forms.css')
-  title Car
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css')
+  link(rel='stylesheet' href='/my_css/carform.css')
+  title Car register
 header
-  // this is where the navbatr starts
   nav.navbar.navbar-expand-lg.bg-body-tertiary
     .container-fluid
       a#logo.navbar-brand(href='landing.pug')
@@ -24,114 +23,88 @@ header
             a.nav-link(href='batterydash.pug') Battery hire
           li.nav-item
             a.nav-link(href='tyredash.pug') Tyre clinic
-// this is where the navbar ends
-// parking form
-section
-  .container.py-5
-    .row
-      .col-md-6
-        .card.card-registration.card-registration-1
-          .card-body.p-5
-            h3.fw-normal.mb-5(style='color: black;') Client Information
-            // Client Information content
-            //- (method='post' action='/api/car')
-            .form-group
-              label.form-label(for='nameOfDriver')
-                | Name of Driver 
-                span.required-field *
-              input#nameOfDriver.form-control.form-control-lg(type='text')
-            .form-group
-              label.form-label(for='tel')
-                | Telephone number
-                span.required-field *
-              input#tel.form-control.form-control-lg(type='text')
-            .form-group
+.box
+  .card
+    .card-body
+      h4.title Parking Unit
+      form#formId.parking-form(name='car' action='/api/regCar' method='POST' onsubmit='return Validate(event)')
+        .row
+          .col
+            label(for='drivername') Driver&apos;s name
+            input.form-control(type='text' aria-label='First name' name='drivername')
+            span#driverNameError
+          .col
+            label.form-label(for='lastname') Gender
+            select#gender.form-select(aria-label='Default select example' name='gender')
+              option(value='male') Male
+              option(value='female') Female
+          .row
+            .col
+              label(for='telephone') Telephone
+              input#telephone.form-control(type='text' aria-label='telephone' name='telephone')
+              span#telephoneError
+            .col
+              label(for='numberplate') Number plate
+              input#numberplate.form-control(type='text' aria-label='numberplate' name='numberplate')
+              span#numberplateError
+          .row
+            .col
+              label.form-label(for='cartype') Car type
+              select.form-select(aria-label='Default select example' name='cartype')
+                option(selected='' disabled='') select
+                option(value='coasters') Coaster
+                option(value='trucks') Truck
+                option(value='taxi') Taxi
+                option(value='personalcar') Personal car
+                option(value='boda') Boda
+            .col
               label.form-label(for='nin') NIN
-              input#nin.form-control.form-control-lg(type='text')
-            .form-group
-              div
-                label.form-label Gender
-                br
-                .form-check.form-check-inline
-                  input#male.form-check-input(type='radio' name='gender' value='male')
-                  label.form-check-label(for='male') Male
-                .form-check.form-check-inline
-                  input#female.form-check-input(type='radio' name='gender' value='female')
-                  label.form-check-label(for='female') Female
-            .row
-              .col
-                .form-group
-                  label.form-label(for='timein')
-                    | Time-in 
-                    span.required-field *
-                  input#timein.form-control.form-control-lg(type='time')
-              .col
-                .form-group
-                  label.form-label(for='timeout')
-                    | Time-out 
-                    span.required-field *
-                  input#timeout.form-control.form-control-lg(type='time')
-              .row
-                .col-md-6.mb-4.pb-2
-                  .form-group
-                    #dateForm
-                      label(for='date') Select a date:
-                      input#date(type='date')
-      .col-md-6
-        .card.card-registration.card-registration-2
-          .card-body.p-5
-            h3.fw-normal.mb-5(style='color: black;') Car Details
-            // Car Details content
-            .row
-              .col
-                .form-group
-                  label.form-label(for='carcolour')
-                    | Car colour 
-                    span.required-field *
-                  input#carcolour.form-control.form-control-lg(type='text')
-              .col
-                .form-group
-                  label.form-label(for='numberplate')
-                    | Number plate 
-                    span.required-field *
-                  input#numberplate.form-control.form-control-lg(type='text')
-            .row
-              .col
-                .form-group
-                  label.form-label(for='cartype')
-                    | Car type 
-                    span.required-field *
-                  select#cartype.form-control.form-control-lg
-                    option(value='' selected='' disabled='') Select a car type
-                    option(value='taxi') Taxi
-                    option(value='truck') Truck
-                    option(value='personalcar') Personal Car
-                    option(value='coaster') Coaster
-                    option(value='boda') Boda
-              .col
-                .form-group
-                  label.form-label(for='carmodel')
-                    | Car model 
-                    span.required-field *
-                  input#carmodel.form-control.form-control-lg(type='text')
-            .form-group
-              label.form-label(for='parkingoptions') Services
-              select#parkingoptions.form-control.form-control-lg
-                option(value='' selected='' disabled='') Select a service
-                option(value='dayparking') Day Parking
-                option(value='nightparking') Night Parking
-                option(value='lessthan3hours') Less than 3 hours
-            .form-group
+              input#nin.form-control(type='text' aria-label='nin' name='nin')
+              span#ninError
+          .row
+            .col
+              label(for='car model') Model
+              input#carmodel.form-control(type='text' aria-label='model' name='carmodel')
+              span#carmodelError
+            .col
+              label(for='color') Color
+              input#color.form-control(type='text' aria-label='color' name='color')
+              span#colorError
+          .row
+            .col
+              label(for='date') Date
+              input#date.form-control(type='date' aria-label='date' name='date')
+              span#dateError
+            .col
+              label(for='time') Time-in
+              input#timein.form-control(type='time' aria-label='time' name='timein')
+              span#timeinError
+          .row
+            .col
+              label.form-label(for='parkingtype') Parking type
+              select.form-select(aria-label='Default select example' name='parkingtype')
+                option(selected='') select
+                option(value='day') Day
+                option(value='night') Night
+                option(value='less3hrs') Less than 3hrs
+            .col
+              label.form-label(for='timeout') Time-out
+              input#timeout.form-control(type='time' aria-label='timeout' name='timeout')
+              span#timeoutError
+          .row
+            .col
               label.form-label(for='charge') Charge
-              input#charge.form-control.form-control-lg(type='text' placeholder='Charge')
-            .form-group
-              label.form-label(for='receipt') Receipt
-              input#receipt.form-control.form-control-lg(type='text' placeholder='Receipt')
-            br
-            input.btn.btn-light.btn-lg(type='submit' data-mdb-ripple-color='dark' value='Submit')
-footer.footer(style='background-color: black; color: white; height: 150px; text-align: center;')
-  | &copy; DockvilleInc. 
-  br
-  |     Contact: kizzaeverdeen@gmail.com
-script(src='/bootstrap-5.3.1-dist/js/bootstrap.js')
-script(src='/my_js/validation.js')
+              input#charge.form-control(type='charge' aria-label='charge' name='charge')
+              span#chargeError
+            .col
+              label.form-label(for='receipt')  Receipt
+              input#receipt.form-control(type='receipt' aria-label='receipt' name='receipt')
+              span#receiptError
+          button.btn.signin(type='submit' text='white') Submit
+footer
+  footer.footer(style='background-color: black; color: white; height: 150px; text-align: center;')
+    | Copyright &amp; copy; DockvilleInc. 
+    br
+    |         Credits;kizzaeverdeen@gmail.com
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js')
+script(src='/my_js/carval.js')

@@ -9,28 +9,28 @@ head
   title DockVille
 // SIDEBAR
 section#sidebar
-  a.brand(href='/admindash.pug')
+  a.brand(href='./admindash')
     i.bx.bxs-car
     span.text DockVille
   ul.side-menu.top
     li.active
-      a(href='./admindash.pug')
+      a(href='./admindash')
         i.bx.bxs-dashboard
         span.text Dashboard
     li
-      a(href='views/cardash.pug')
+      a(href='./cardash')
         i.bx.bxs-car
         span.text Parking-lot
     li
-      a(href='./batterydash.pug')
+      a(href='./batterydash')
         i.bx.bxs-battery
         span.text battery-section
     li
-      a(href='./tyredash.pug')
+      a(href='./tyredash')
         i.bx.bxs-gas-pump
         span.text Car Tyre Clinic
   ul.side-menu
-    a.logout(href='/landing.pug')
+    a.logout(href='/landing')
       i.bx.bxs-log-out-circle
       span.text Logout
 // SIDEBAR
@@ -66,7 +66,7 @@ section#content
         i.bx.bxs-car
         span.text
           h3 Parking lot
-          button.btn.btn-primary(type='button' style='background-color: #3C91E6;')
+          a.btn.btn-primary(type='' href='/api/car' style='background-color: #3C91E6;')
             | Add
             | User
     .table-data
@@ -82,9 +82,10 @@ section#content
               th Status
               th Date
           tbody
+            
             tr
               td
-                img(src='img/people.png')
+                
                 p Emily Sande
               td 0773498672
               td 04-08-2023
@@ -93,7 +94,7 @@ section#content
               td 07-08-2023
             tr
               td
-                img(src='img/pc3.jpg')
+                
                 p Mukasa David
               td 0773443672
               td 03-08-2023
@@ -102,7 +103,7 @@ section#content
               td 07-08-2023
             tr
               td
-                img(src='img/pic2.jpg')
+                
                 p Dennis Kibuuka
               td 0773498354
               td 01-10-2021
@@ -111,7 +112,7 @@ section#content
               td 07-08-2023
             tr
               td
-                img(src='img/pic1.jpg')
+               
                 p Patrick Mukasa
               td 0762465672
               td 05-08-2023
@@ -120,7 +121,7 @@ section#content
               td 07-08-2023
             tr
               td
-                img(src='img/pic4.jpg')
+                
                 p Leonard George
               td 0773495724
               td 07-08-2023

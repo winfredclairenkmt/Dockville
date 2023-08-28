@@ -1,0 +1,207 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
+
+}
+
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url('/images/parking.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+}
+
+
+.navigation a {
+  position: relative;
+  font-size: 1.1em;
+  color: white;
+  text-decoration: none;
+  font-weight: 50%;
+  margin-left: 30px;
+}
+
+.navigation a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100px;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transform-origin: right;
+  transform: scaleZ(0);
+  /* transition: transform .5s; */
+}
+
+.navigation a:hover::after {
+  transform-origin: left;
+  /* transform: scale(1); */
+}
+
+.navigation .btnlogin-popup {
+  width: 110px;
+  height: 40px;
+  background: transparent;
+  border: 2px solid white;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  color:white;
+  font-weight: 300;
+  margin-left: 50px;
+}
+
+.navigation .btnlogin-popup:hover{
+  background-color: rgba(29, 4, 97);
+  color:white;
+}
+
+.wrapper{
+  position: relative;
+  width: 400px;
+  height: 440px;
+  background: transparent;
+  border: 2px solid gray;
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* transform: scale(0);
+  transition: transform .5s, height .2s ease; */
+}
+
+.wrapper.active-popup{
+  transform: scale(1);
+}
+
+.wrapper.active{
+  height: 520px;
+}
+
+.wrapper .form-box{
+  width: 100%;
+  padding: 40px;
+}
+
+.wrapper .form-box.login{
+  /* transition: transform .18s ease; */
+  transform: translateX(0);
+}
+
+.wrapper.active .form-box.login{
+  transition: none;
+  /* transform: translateX(-400px); */
+}
+
+.form-box h2{
+  font-size: 2em;
+  color: rgb(29, 4, 97);
+  text-align: center;
+}
+
+.input-box{
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-bottom: 2px solid black;
+  margin: 30px 0;    
+}
+
+.input-box label{
+  position: absolute;
+  top: 55%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color: rgb(29, 4, 97);
+  font-weight: 500;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label{
+  top: -7px;
+}
+
+.input-box  input{
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: rgb(29, 4, 97);
+  font-weight: 600px;
+}
+
+.input-box .icon{
+  position:absolute;
+  right: 10px;
+  font-size: 1.5em;
+  color: black;
+  line-height: 60px;
+}
+
+.btn{
+  width: 100%;
+  height: 60px;
+  background-color: rgb(29, 4, 97);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  color: white;
+  font-weight: 500;
+  
+}
+
+.logo {
+  font-size: 2em;
+  color: white;
+  user-select: none;
+} 
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 10px 20px;
+}
+
+.logo img {
+  width: 40px; 
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+/* Adjust other styles as needed */

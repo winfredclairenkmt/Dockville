@@ -1,7 +1,8 @@
+// const { ensureLoggedIn } = require('connect-ensure-login');
 const express = require('express');
 const router = express.Router();
 
-router.get('/dash', (req, res) => {
+router.get('/admindash',  (req, res) => {
     res.render('admindash.pug');
 })
 router.get('/batterydash', (req, res) => {

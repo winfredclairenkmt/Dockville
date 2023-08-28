@@ -1,0 +1,34 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Login
+  link(rel='stylesheet' href='/my_css/login.css')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css' integrity='sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==' crossorigin='anonymous' referrerpolicy='no-referrer')
+header
+  h2.logo
+    img(src='/Images/logo.png')
+    |  DockVille
+  nav.navigation
+    a(href='/landing.pug') Home
+    a(href='/parkdash.pug') Parking
+    a(href='/batterydash.pug') Battery
+    a(href='/tyredash.pug') Tyre
+    button.btnlogin-popup Login
+.wrapper
+  .form-box.login
+    h2 Login
+    form(action='/api/login' method='POST' name='login' onsubmit='return Validate(event)')
+      .input-box
+        span#emailError.icon
+          i.fa-solid.fa-envelope
+        input(type='email' name='email')
+        label Email
+      .input-box
+        span#passwordError.icon
+          i.fa-solid.fa-key
+        input(type='password' name='password')
+        label Password
+      button.btn(type='submit') Login
+script(type='module' src='https://unpkg.com/ionicons@7.1.0/dist/ionicons/ioncons.ems.js')
+script(src='/my_js/login.js')

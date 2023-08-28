@@ -1,0 +1,57 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Registration Form
+  link(rel='stylesheet' href='/bootstrap-5.3.1-dist/css/bootstrap.css')
+  link(rel='stylesheet' href='/my_css/register.css')
+.card
+  h1 Registration Form
+  form(name="register" action='/api/register' method='POST')
+    label(for='nameOfEmployee')
+      | Name
+      span.required *
+    input#nameOfEmployee(type='text' name='nameOfEmployee')
+    br
+    label(for='phone')
+      | Phone
+      span.required *
+    input#phone(type='tel' name='phone')
+    br
+    label(for='address')
+      | Address
+      span.required *
+    input#address(type='text' name='address')
+    label
+      | Gender
+      span.required *
+    .radio-group
+      input#male(type='radio' name='gender' value='male')
+      label(for='male') Male
+      input#female(type='radio' name='gender' value='female')
+      label(for='female') Female
+    label(for='nin')
+      | NIN
+      span.required *
+    input#nin(type='text' name='nin')
+    br
+    label(for='email')
+      | Email
+      span.required *
+    input#email(type='email' name='email')
+    br
+    label(for='role')
+      | Role
+      span.required *
+    select#role(name='role')
+      option(value='manager') Manager
+      option(value='tyreUnitManager') Tire Unit Manager
+      option(value='batteryUnitManager') Battery Unit Manager
+      option(value='parkingUnitManager') Parking Unit Manager
+    br
+    label(for='password')
+      | Password
+      span.required *
+    input#password(type='password' name='password')
+    br
+    button(type='submit') Submit
