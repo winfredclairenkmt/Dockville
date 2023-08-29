@@ -34,7 +34,7 @@ header
             input.form-control(type='text' aria-label='First name' name='drivername')
             span#driverNameError
           .col
-            label.form-label(for='lastname') Gender
+            label.form-label(for='gender') Gender
             select#gender.form-select(aria-label='Default select example' name='gender')
               option(value='male') Male
               option(value='female') Female
@@ -50,7 +50,7 @@ header
           .row
             .col
               label.form-label(for='cartype') Car type
-              select.form-select(aria-label='Default select example' name='cartype')
+              select#cartype.form-select(aria-label='Default select example' name='cartype')
                 option(selected='' disabled='') select
                 option(value='coasters') Coaster
                 option(value='trucks') Truck
@@ -82,7 +82,7 @@ header
           .row
             .col
               label.form-label(for='parkingtype') Parking type
-              select.form-select(aria-label='Default select example' name='parkingtype')
+              select#parkingtype.form-select(aria-label='Default select example' name='parkingtype')
                 option(selected='') select
                 option(value='day') Day
                 option(value='night') Night

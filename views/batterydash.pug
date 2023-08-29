@@ -66,7 +66,7 @@ section#content
         i.bx.bxs-battery
         span.text
           h3 Battery section
-          p 13 Orders
+          p #{batteries}
           a.btn.btn-primary(type='' style='background-color:#3C91E6; padding: 4px; margin: 5px; border: none; height: 50px; width: 80px; ' href='/battery') Add User
     .table-data
       .order
@@ -81,51 +81,14 @@ section#content
               th Status
               th Date hired
           tbody
-            tr
-              td
-                
-                p Emily Sande
-              td Contact
-              td SIZE
-              td
-                span.status.completed Completed
-              td 07-08-2023
-            tr
-              td
-                
-                p Mukasa David
-              td Contact
-              td Size
-              td
-                span.status.pending Pending
-              td 07-08-2023
-            tr
-              td
-            
-                p Dennis Kibuuka
-              td Contact
-              td Size
-              td
-                span.status.process Process
-              td 07-08-2023
-            tr
-              td
-                
-                p Patrick Mukasa
-              td Contact
-              td Size
-              td
-                span.status.pending Pending
-              td 07-08-2023
-            tr
-              td
-                
-                p Leonard George
-              td Contact
-              td Size
-              td
-                span.status.completed Completed
-              td 07-08-2023
+          if batteries
+              tr
+                td #{client.name}
+                td #{client.contact}
+                td #{client.battery}
+                td #{client.status}
+                td #{client.date}
+
   // MAIN
 // CONTENT
 script(src='dash.js')

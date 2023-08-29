@@ -3,6 +3,7 @@ const Validate = (event) => {
 
     let email = document.querySelector('input[type="email"]'); // Select input by type
     let emailError = document.getElementById("emailError");
+    let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if (email.value === "") {
         email.style.border = "1px solid red";
@@ -12,17 +13,17 @@ const Validate = (event) => {
         emailError.style.fontFamily = "Helvetica";
         email.focus();
         error++;
-    } else {
-        email.style.border = "1px solid green";
-    }
-
-    let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (!email.value.match(emailRegex)) {
+    } 
+     else if (!email.value.match(emailRegex)) {
         email.style.border = "1px solid red";
         emailError.textContent = "Invalid Email address";
         email.focus();
         error++;
     }
+    else {
+        email.style.border = "1px solid green";
+    }
+
 
     let password = document.querySelector('input[type="password"]'); // Select input by type
     let passwordError = document.getElementById("passwordError");
@@ -36,7 +37,8 @@ const Validate = (event) => {
         password.focus();
         error++;
     }
-
+ console.log(error);
+ 
     if (error > 0) {
         event.preventDefault();
     }

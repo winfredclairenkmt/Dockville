@@ -12,7 +12,7 @@ router.post('/register', async(req, res) => {
     try{
         const user = new Employee(req.body);
         console.log(user);
-        await user.save();
+        await Employee.register(user, req.body.password);
         res.redirect('/api/register');
     }
     catch(error){

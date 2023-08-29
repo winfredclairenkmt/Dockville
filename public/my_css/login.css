@@ -91,8 +91,7 @@ header {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  /* transform: scale(0);
-  transition: transform .5s, height .2s ease; */
+
 }
 
 .wrapper.active-popup{
@@ -138,7 +137,7 @@ header {
   left: 5px;
   transform: translateY(-50%);
   font-size: 1em;
-  color: rgb(29, 4, 97);
+  color: rgb(239, 238, 242);
   font-weight: 500;
   pointer-events: none;
   transition: .5s;

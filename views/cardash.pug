@@ -66,68 +66,39 @@ section#content
         i.bx.bxs-car
         span.text
           h3 Parking lot
-          a.btn.btn-primary(type='' href='/api/car' style='background-color: #3C91E6;')
+          a.btn.btn-primary(href='/api/car' style='background-color: #3C91E6;')
             | Add
             | User
     .table-data
       .order
         .head
-          h3 Parking-lot Activities
+          h3 Parked vehicles
         table
           thead
             tr
               th Name
-              th Phone number
+              th Telephone
+              //- th NIN
               th Number Plate
-              th Status
-              th Date
+              th Model
+              th Color
+              th Time-In
+              //- th Time-Out
+              //- th Date
           tbody
-            
-            tr
-              td
-                
-                p Emily Sande
-              td 0773498672
-              td 04-08-2023
-              td
-                span.status.completed Completed
-              td 07-08-2023
-            tr
-              td
-                
-                p Mukasa David
-              td 0773443672
-              td 03-08-2023
-              td
-                span.status.pending Pending
-              td 07-08-2023
-            tr
-              td
-                
-                p Dennis Kibuuka
-              td 0773498354
-              td 01-10-2021
-              td
-                span.status.process Process
-              td 07-08-2023
-            tr
-              td
-               
-                p Patrick Mukasa
-              td 0762465672
-              td 05-08-2023
-              td
-                span.status.pending Pending
-              td 07-08-2023
-            tr
-              td
-                
-                p Leonard George
-              td 0773495724
-              td 07-08-2023
-              td
-                span.status.completed Completed
-              td 07-08-2023
-  // MAIN
+          if cars.length 
+            each car in cars
+              tr
+                td #{car.drivername}
+                td #{car.telephone}
+                //- td #{car.nin}
+                td #{car.numberplate}
+                td #{car.carmodel}
+                td #{car.color}
+                td #{car.timein} 
+                td #{car.timeout}
+                td #{car.date} 
+                  a.btn.btn-primary(href='/api/editCar/'+car._id) Edit 
+    // MAIN
 // CONTENT
 script(src='.js')

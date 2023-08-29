@@ -67,22 +67,22 @@ section#content
           i.bx.bxs-car
           span.text
             h3 Parking lot
-            p 300 vehicles
+            p #{cars}
             p Total revenue
       li
         a(href='./tyredash')
           i.bx.bxs-gas-pump
           span.text
             h3 Car Tyre Clinic
-            p  20 activities
+            p  #{tyres}
             p Total revenue
       li
         a(href='./batterydash')
           i.bx.bxs-battery
           span.text
             h3 Battery section
-            p 13 Orders
-            p Total revenue
+            p #{batteries}
+            p Total revenue in UGX:
     .table-data
       .order
         .head
@@ -92,48 +92,16 @@ section#content
             tr
               th Name
               th Phone number
-              th 
               th Address
               th Role
           tbody
-            tr
-              td
-                //- img(src='img/people.png')
-              td
-              td 
-              td 
-              td 
-              td 
-            tr
-              td
-                //- img(src='img/pc3.jpg')
-              td
-              td 
-              td 
-              td 
-              td 
-            tr
-              td
-                //- img(src='img/pic2.jpg')
-              td
-              td
-              td
-              td 
-              td 
-            tr
-              td
-              td
-              td 
-              td 
-              td 
-              td 
-            tr
-              td
-              td
-              td
-              td 
-              td 
-              td 
+          if employees.length
+            each employee in employees
+              tr
+                td #{employee.nameOfEmployee}
+                td #{employee.phone}
+                td #{employee.address}
+                td #{employee.role}
   // MAIN
 // CONTENT
 script(src='dash.js')
