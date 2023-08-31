@@ -1,27 +1,35 @@
-const Validate = (event) => {
+const Validate = () => {
     let error = 0;
-  
-    //picking input fields with their names
-    let driverName = document.register.drivername;
-    let telephone = document.register.telephone;
-    let numberplate = document.register.numberplate;
-    let nin = document.register.nin;
-    let carmodel = document.register.carmodel;
-    let color = document.register.color;
-    let charge = document.register.charge;
-    let receipt = document.register.receipt;
+
+    let driverName = document.getElementById("driverName");
+    let gender = document.getElementById("gender");
+    let telephone = document.getElementById("telephone");
+    let numberplate = document.getElementById("numberplate");
+    let cartype = document.getElementById("cartype");
+    let nin = document.getElementById("nin");
+    let carmodel = document.getElementById("carmodel");
+    let colour = document.getElementById("colour");
+    let date = document.getElementById("date");
+    let timein = document.getElementById("timein");
+    let parkingtype = document.getElementById("parkingtype");
+    let charge = document.getElementById("charge");
+    let receipt = document.getElementById("receipt");
     
   
     //picking error fields
     let driverNameError = document.getElementById("driverNameError");
+    let genderError = document.getElementById("genderError");
     let telephoneError = document.getElementById("telephoneError");
     let numberplateError = document.getElementById("numberplateError");
+    let cartypeError = document.getElementById("cartypeError");
     let ninError = document.getElementById("ninError");
     let carmodelError = document.getElementById("carmodelError");
-    let colorError = document.getElementById("colorError");
+    let colourError = document.getElementById("colourError");
+    let dateError = document.getElementById("dateError");
+    let timeinError = document.getElementById("timeinError");
+    let parkingtypeError = document.getElementById("parkingtypeError");
     let chargeError = document.getElementById("chargeError");
     let receiptError = document.getElementById("receiptError");
-    
     
     //validating input for first name
     if (driverName.value === "") {
@@ -31,47 +39,74 @@ const Validate = (event) => {
         "color: red; font-size:9px;  font-family:Helvetica;";
       driverName.focus();
       error++;
+      return false;
     } else {
       driverNameError.style.border = "1px solid green";
       telephone.focus();
     }
+
+    //validating input for gender
+    if (gender.value === "") {
+      gender.style.border = " 1px solid red";
+      genderError.textContent = "gender required";
+      genderError.style =
+        "color: red; font-size:9px;  font-family:Helvetica;";
+      gender.focus();
+      error++;
+      return false;
+    } else {
+      genderError.style.border = "1px solid green";
+      nin.focus();
+    }
+    
   
     //validating input for telephone
-    const phoneRegex = /^(\+256|7)[\d]{9}$/
-
-
-if(phone.value == ""){
-    phone.style.border = "1px solid red";
-    phoneError.textContent = "Phone number is required";
-    phoneError.style = "color: red; font-size:11px; font-family:helvetica,Arial,sans-serif;";
-    phone.focus();
-    error++;   
-}
-else if(!(phoneRegex.test(phone.value) || phoneRegex.test(phone.value))){
-    phone.style.border = "1px solid red";
-    errorPhone.textContent = "right phone '+256/7..";
-    errorPhone.style = "color: red; font-size: 11px; font-family: arial, sans-serif;";
-    phone.focus();
+    const telephoneRegex = /^(\+256|7)[\d]{9}$/
+if(telephone.value == "" || !telephone.value.match(telephoneRegex)){
+    telephone.style.border = "1px solid red";
+    telephoneError.textContent = "Telephone must look like +256/7..";
+    telephoneError.style = "color: red; font-size:11px; font-family:helvetica,Arial,sans-serif;";
+    telephone.focus();
     error++;  
+    return false; 
 }else{
-    phone.style.border = "1px solid green";
+    telephone.style.border = "1px solid green";
     numberplate.focus();
 }  
     //validating input for numberplate
-    if (numberplate.value === "") {
+const numberplateRegex=/^[A-Z]{3}\d{3}[A-Z]$/
+
+    if (numberplate.value === "" || !numberplate.value.match(numberplateRegex)) {
       numberplate.style.border = " 1px solid red";
-      numberplateError.textContent = "numberplate required";
+      numberplateError.textContent = "Valid numberplate required";
       numberplateError.style =
         "color: red; font-size:9px;  font-family:Helvetica;";
       numberplate.focus();
       error++;
     } else {
-      numberplateError.style.border = "1px solid green";
+      numberplate.style.border = "1px solid green";
+      nin.focus();
+    }
+
+    //validating input for cartype
+    if (cartype.value === "") {
+      cartype.style.border = " 1px solid red";
+      cartypeError.textContent = "cartype required";
+      cartypeError.style =
+        "color: red; font-size:9px;  font-family:Helvetica;";
+      cartype.focus();
+      error++;
+      return false;
+    }
+    else {
+      cartype.style.border = "1px solid green";
       nin.focus();
     }
   
     //validating input for nin
-    if (nin.value === "") {
+    const ninRegex = /^CF ([a-zA-Z0-9]{12})+$/
+    const ninRegex2 = /^CM([a-zA-Z0-9]{12})+$/
+    if (nin.value === "" || !nin.value.match(ninRegex) && !nin.value.match(ninRegex2)) {
       nin.style.border = " 1px solid red";
       ninError.textContent = "nin required";
       ninError.style = "color: red; font-size:9px;  font-family:Helvetica;";
@@ -89,20 +124,64 @@ else if(!(phoneRegex.test(phone.value) || phoneRegex.test(phone.value))){
       carmodelError.style = "color: red; font-size:9px;  font-family:Helvetica;";
       carmodel.focus();
       error++;
+      return false;
     } else {
       carmodelError.style.border = "1px solid green";
-      color.focus();
+      colour.focus();
     }
   
     //validating input for color
-    if (color.value === "") {
-      color.style.border = " 1px solid red";
-      colorError.textContent = "color required";
-      colorError.style = "color: red; font-size:9px;  font-family:Helvetica;";
-      color.focus();
+    if (colour.value === "") {
+      colour.style.border = " 1px solid red";
+      colourError.textContent = "colour required";
+      colourError.style = "colour: red; font-size:9px;  font-family:Helvetica;";
+      colour.focus();
       error++;
+      return false;
     } else {
-      colorError.style.border = "1px solid green";
+      colour.style.border = "1px solid green";
+      date.focus();
+    }
+
+    //validating input for date
+    if (date.value === "") {
+      date.style.border = " 1px solid red";
+      dateError.textContent = "date required";
+      dateError.style = "color: red; font-size:9px;  font-family:Helvetica;";
+      date.focus();
+      error++;
+      return false;
+    }
+    else {
+      dateError.style.border = "1px solid green";
+      timein.focus();
+    }
+
+    //validating input for timein
+    if (timein.value === "") {
+      timein.style.border = " 1px solid red";
+      timeinError.textContent = "timein required";
+      timeinError.style = "color: red; font-size:9px;  font-family:Helvetica;";
+      timein.focus();
+      error++;
+      return false;
+    }
+    else {
+      timeinError.style.border = "1px solid green";
+      parkingtype.focus();
+    }
+
+    //validating input for parkingtype
+    if (parkingtype.value === "") {
+      parkingtype.style.border = " 1px solid red";
+      parkingtypeError.textContent = "parkingtype required";
+      parkingtypeError.style = "color: red; font-size:9px;  font-family:Helvetica;";
+      parkingtype.focus();
+      error++;
+      return false;
+    }
+    else {
+      parkingtypeError.style.border = "1px solid green";
       charge.focus();
     }
   
@@ -113,6 +192,7 @@ else if(!(phoneRegex.test(phone.value) || phoneRegex.test(phone.value))){
       chargeError.style = "color: red; font-size:9px;  font-family:Helvetica;";
       charge.focus();
       error++;
+      return false;
     } else {
       chargeError.style.border = "1px solid green";
       receipt.focus();
@@ -129,8 +209,8 @@ else if(!(phoneRegex.test(phone.value) || phoneRegex.test(phone.value))){
       receiptError.style.border = "1px solid green";
     }
   
-    if (error > 0) {
-      event.preventDefault();
-    }
+    // if (error > 0) {
+    //   event.preventDefault();
+    // }
   };
   

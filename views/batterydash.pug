@@ -30,7 +30,7 @@ section#sidebar
         i.bx.bxs-gas-pump
         span.text Car Tyre Clinic
   ul.side-menu
-    a.logout(href='./landing')
+    a.logout(href='/api/landing')
       i.bx.bxs-log-out-circle
       span.text Logout
 // SIDEBAR
@@ -81,13 +81,16 @@ section#content
               th Status
               th Date hired
           tbody
-          if batteries
+          if batteries.length 
+            
               tr
                 td #{client.name}
                 td #{client.contact}
                 td #{client.battery}
                 td #{client.status}
                 td #{client.date}
+                   a.btn.btn-primary(href='/api/editCar/edit/'+._id) Edit 
+
 
   // MAIN
 // CONTENT

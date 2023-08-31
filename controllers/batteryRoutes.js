@@ -30,25 +30,6 @@ router.get('/editBattery/:id', async(req, res) => {
     
 });
 
-router.post('/editBattery', async (req, res) => {
-    try {
-      // Get the battery ID from the hidden input field
-      const batteryId = req.body.batteryId;
-  
-      // Find the battery by its ID and update its properties
-      await Battery.findByIdAndUpdate(batteryId, {
-        // Update the properties based on the form fields
-        timeout: req.body.timeout,
-        
-      });
-  
-      // Redirect to the batterydash.pug page after updating
-      res.redirect('/api/batterydash');
-    } catch (error) {
-      console.error(error);
-      res.status(500).send('Internal Server Error');
-    }
-  });
 
 
 

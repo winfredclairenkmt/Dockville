@@ -23,15 +23,15 @@ header
   .card
     .card-body
       h4.title Parking Unit
-      form#formId.parking-form(name='car' action='/api/regCar' method='POST' onsubmit='return Validate(event)')
+      form#formId.parking-form(name='car' action='/api/regCar' method='POST' onsubmit='return Validate()')
         .row
           .col
             label(for='drivername') Driver&apos;s name
-            input.form-control(type='text' aria-label='First name' name='drivername')
+            input#drivername.form-control(type='text' aria-label='First name' name='drivername')
             span#driverNameError
           .col
             label.form-label(for='gender') Gender
-            select#gender.form-select(aria-label='Default select example' name='gender')
+            select#gender.form-select(aria-label='Default select example' name='gender' )
               option(value='male') Male
               option(value='female') Female
           .row
@@ -63,13 +63,13 @@ header
               input#carmodel.form-control(type='text' aria-label='model' name='carmodel')
               span#carmodelError
             .col
-              label(for='color') Color
-              input#color.form-control(type='text' aria-label='color' name='color')
+              label(for='colour') Colour
+              input#colour.form-control(type='text' aria-label='colour' name='colour')
               span#colorError
           .row
             .col
               label(for='date') Date
-              input#date.form-control(type='date' aria-label='date' name='date' format='yyyy-MM-dd')
+              input#date.form-control(type='date' aria-label='date' name='date')
               span#dateError
             .col
               label(for='time') Time-in

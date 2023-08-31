@@ -33,7 +33,7 @@ const carSchema = mongoose.Schema(
       type: String,
     },
     date: {
-      type: Date,
+      type: String,
     },
     timein: {
       type: String,
