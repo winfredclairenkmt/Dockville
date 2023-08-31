@@ -24,16 +24,19 @@ router.post('/regCar', async(req, res) => {
 });
 
 //editing car input
-router.get('/editCar/:id', async(req, res) => {
-    const car = await Car.findById(req.params.id);
-    res.render('caredit', {car});
+router.get('/editCar/edit/:id', async(req, res) => {
+    try{
+    const vehicle = await Car.findOne({_id: req.params.id});
+    res.render('caredit', {car: vehicle});
+    }catch(error){
+        res.status(400).send('Car isnt in the database');
+    }
 });
 
-router.post('/editCar/:id', async (req, res) => {
-    const updatedData = req.body;
+router.post('/editCar/edit', async (req, res) => {
     try {
-        const updatedCar = await Car.findByIdAndUpdate(req.params.id, updatedData, { new: true });
-        res.redirect(`/editCar/${updatedCar._id}`);
+        await Car.findOneAndUpdate({_id: req.query.id }, req.body);
+        res.redirect('/api/cardash');
     } catch (error) {
         res.status(500).send("Error updating car.");
     }

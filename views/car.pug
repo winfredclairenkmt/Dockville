@@ -16,13 +16,9 @@ header
       #navbarSupportedContent.collapse.navbar-collapse
         ul.navbar-nav.me-auto.mb-2.mb-lg-0
           li.nav-item
-            a.nav-link.active(aria-current='page' href='')
+            a.nav-link(href='/cardash.pug') Parking services
           li.nav-item
-            a.nav-link(href='parkdash.pug') Parking services
-          li.nav-item
-            a.nav-link(href='batterydash.pug') Battery hire
-          li.nav-item
-            a.nav-link(href='tyredash.pug') Tyre clinic
+            a.nav-link(href='/cardash') Back  
 .box
   .card
     .card-body
@@ -73,7 +69,7 @@ header
           .row
             .col
               label(for='date') Date
-              input#date.form-control(type='date' aria-label='date' name='date')
+              input#date.form-control(type='date' aria-label='date' name='date' format='yyyy-MM-dd')
               span#dateError
             .col
               label(for='time') Time-in
@@ -103,7 +99,7 @@ header
           button.btn.signin(type='submit' text='white') Submit
 footer
   footer.footer(style='background-color: black; color: white; height: 150px; text-align: center;')
-    | Copyright &amp; copy; DockvilleInc. 
+    | Copyright DockvilleInc. 
     br
     |         Credits;kizzaeverdeen@gmail.com
 script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js')

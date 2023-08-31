@@ -5,6 +5,7 @@ head
   title Login
   link(rel='stylesheet' href='/my_css/login.css')
   link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css' integrity='sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==' crossorigin='anonymous' referrerpolicy='no-referrer')
+  link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css")
 header
   h2.logo
     img(src='/Images/logo.png')
@@ -18,7 +19,7 @@ header
 .wrapper
   .form-box.login
     h2 Login
-    form(action='/api/login' method='POST' name='login')
+    form(action='/api/login' method='POST' name='login' onsubmit='return Validate(event)')
       .input-box
         span#emailError.icon
           i.fa-solid.fa-envelope
@@ -30,5 +31,5 @@ header
         input(type='password' name='password')
         label Password
       button.btn(type='submit') Login
-script(type='module' src='https://unpkg.com/ionicons@7.1.0/dist/ionicons/ioncons.ems.js')
+script( src='https://unpkg.com/ionicons@7.1.0/dist/ionicons/ioncons.ems.js')
 script(src='/my_js/login.js')

@@ -37,17 +37,26 @@ const Validate = (event) => {
     }
   
     //validating input for telephone
-    if (telephone.value === "") {
-      telephone.style.border = " 1px solid red";
-      telephoneError.textContent = "telephone required";
-      telephoneError.style = "color: red; font-size:9px;  font-family:Helvetica;";
-      telephone.focus();
-      error++;
-    } else {
-      telephoneError.style.border = "1px solid green";
-      numberplate.focus();
-    }
-  
+    const phoneRegex = /^(\+256|7)[\d]{9}$/
+
+
+if(phone.value == ""){
+    phone.style.border = "1px solid red";
+    phoneError.textContent = "Phone number is required";
+    phoneError.style = "color: red; font-size:11px; font-family:helvetica,Arial,sans-serif;";
+    phone.focus();
+    error++;   
+}
+else if(!(phoneRegex.test(phone.value) || phoneRegex.test(phone.value))){
+    phone.style.border = "1px solid red";
+    errorPhone.textContent = "right phone '+256/7..";
+    errorPhone.style = "color: red; font-size: 11px; font-family: arial, sans-serif;";
+    phone.focus();
+    error++;  
+}else{
+    phone.style.border = "1px solid green";
+    numberplate.focus();
+}  
     //validating input for numberplate
     if (numberplate.value === "") {
       numberplate.style.border = " 1px solid red";

@@ -41,12 +41,12 @@ section#content
     i.bx.bx-menu
     form(action='#')
       .form-input
-        input(type='search' placeholder='Search...')
-        button.search-btn(type='submit')
+        //- input(type='search' placeholder='Search...')
+        //- button.search-btn(type='submit')
           i.bx.bx-search
-    input#switch-mode(type='checkbox' hidden='')
-    label.switch-mode(for='switch-mode')
-    a.profile(href='#')
+    //- input#switch-mode(type='checkbox' hidden='')
+    //- label.switch-mode(for='switch-mode')
+    //- a.profile(href='#')
       img(src='img/people.png')
   // NAVBAR ENDS HERE
   // MAIN
@@ -69,6 +69,22 @@ section#content
           a.btn.btn-primary(href='/api/car' style='background-color: #3C91E6;')
             | Add
             | User
+      li 
+        i.bx.bxs-price 
+        span.text
+        h3 Prices 
+          table 
+            thead
+              tr
+                th Car type
+                th Duration
+                th Charge 
+            tbody 
+              tr
+                td Trucks
+                td 
+                td 10
+              
     .table-data
       .order
         .head
@@ -83,7 +99,7 @@ section#content
               th Model
               th Color
               th Time-In
-              //- th Time-Out
+              th Time-Out
               //- th Date
           tbody
           if cars.length 
@@ -98,7 +114,7 @@ section#content
                 td #{car.timein} 
                 td #{car.timeout}
                 td #{car.date} 
-                  a.btn.btn-primary(href='/api/editCar/'+car._id) Edit 
+                  a.btn.btn-primary(href='/api/editCar/edit/'+car._id) Edit 
     // MAIN
 // CONTENT
 script(src='.js')
