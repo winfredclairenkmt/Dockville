@@ -1,0 +1,83 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css')
+  link(rel='stylesheet' href='/my_css/register.css')
+  title Car register
+header
+  nav.navbar.navbar-expand-lg.bg-body-tertiary
+    .container-fluid
+      a#logo.navbar-brand(href='landing.pug')
+        img#image(src='/Images/logo.png')
+        | Dockville
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.me-auto.mb-2.mb-lg-0
+          li.nav-item
+            a.nav-link.active(aria-current='page' href='')
+          li.nav-item
+            a.nav-link(href='parkdash.pug') Parking services
+          li.nav-item
+            a.nav-link(href='batterydash.pug') Battery hire
+          li.nav-item
+            a.nav-link(href='tyredash.pug') Tyre clinic
+.box
+  .card
+    .card-body
+      h4.title Registration
+      form#formId.parking-form(name='regEmp' action='/api/regEmp' method='POST' onsubmit='return Validate(event)')
+        .row
+          .col
+            label(for='firstname') First name
+            input#fname.form-control(type='text' aria-label='First name' name='fname')
+            span#fNameError
+          .col
+            label(for='lastname') Last name
+            input#lname.form-control(type='text' aria-label='Last name' name='lname')
+            span#lNameError
+        .row
+          .col
+            label(for='telephone') Telephone
+            input#telephone.form-control(type='text' aria-label='telephone' name='telephone')
+            span#telephoneError
+          .col
+            label.form-label(for='address') Address
+            input#address.form-control(type='text' aria-label='address' name='address')
+        .row
+          .col
+            label(for='nin') NIN
+            input#nin.form-control(type='text' aria-label='nin' name='nin')
+            span#ninError
+          .col
+            label.form-label(for='lastname') Gender
+            select#gender.form-select(aria-label='Default select example' type='text' name='gender')
+              option(value='') Select
+              option(value='male') Male
+              option(value='female') Female
+        .col
+          label.form-label(for='role') Role
+          select#role.form-select(aria-label='Default select example' type='text' name='role')
+            option(value='') Select
+            option(value='manager') Manager
+            option(value='tyreUnitManager') Tyre Unit manager
+            option(value='parkingUnitManager') Parking Unit manager
+            option(value='batteryUnitManager') Battery Unit manager
+        .row
+          .col
+            label(for='') Email
+            input#email.form-control(type='text' aria-label='email' name='email')
+            span#emailError
+          .col
+            label(for='password') Password
+            input#password.form-control(type='password' aria-label='password' name='password')
+            span#passwordError
+        button.btn.signin(type='submit' text='white') Submit
+footer
+  footer.footer(style='background-color: black; color: white; height: 150px; text-align: center;')
+    | Copyright &amp; copy; DockvilleInc. 
+    br
+    |       Credits;kizzaeverdeen@gmail.com
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js')
+script(src='/')

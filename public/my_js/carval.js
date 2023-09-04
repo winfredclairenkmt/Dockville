@@ -1,7 +1,7 @@
-const Validate = () => {
+const Validate = (event) => {
     let error = 0;
 
-    let driverName = document.getElementById("driverName");
+    let drivername = document.getElementById("drivername");
     let gender = document.getElementById("gender");
     let telephone = document.getElementById("telephone");
     let numberplate = document.getElementById("numberplate");
@@ -31,32 +31,33 @@ const Validate = () => {
     let chargeError = document.getElementById("chargeError");
     let receiptError = document.getElementById("receiptError");
     
-    //validating input for first name
-    if (driverName.value === "") {
-      driverName.style.border = " 1px solid red";
-      driverNameError.textContent = "name required";
+    //validating input for name
+    if (drivername.value == "" || drivername.value.length <3 ) {
+      drivername.style.border = " 1px solid red";
+      driverNameError.textContent = "Driver name required";
       driverNameError.style =
         "color: red; font-size:9px;  font-family:Helvetica;";
-      driverName.focus();
+      drivername.focus();
       error++;
       return false;
     } else {
-      driverNameError.style.border = "1px solid green";
-      telephone.focus();
+      drivername.style.border = "1px solid green";
+      driverNameError.textContent = "";
+      gender.focus();
     }
 
     //validating input for gender
-    if (gender.value === "") {
+    if (gender.value =="") {
       gender.style.border = " 1px solid red";
       genderError.textContent = "gender required";
-      genderError.style =
-        "color: red; font-size:9px;  font-family:Helvetica;";
+      genderError.style = "color: red; font-size:9px;  font-family:Helvetica;";
       gender.focus();
       error++;
       return false;
     } else {
-      genderError.style.border = "1px solid green";
-      nin.focus();
+      gender.style.border = "1px solid green";
+      genderError.textContent = "";
+      telephone.focus();
     }
     
   
@@ -71,6 +72,7 @@ if(telephone.value == "" || !telephone.value.match(telephoneRegex)){
     return false; 
 }else{
     telephone.style.border = "1px solid green";
+    telephoneError.textContent = "";
     numberplate.focus();
 }  
     //validating input for numberplate
@@ -83,9 +85,11 @@ const numberplateRegex=/^[A-Z]{3}\d{3}[A-Z]$/
         "color: red; font-size:9px;  font-family:Helvetica;";
       numberplate.focus();
       error++;
+      return false;
     } else {
       numberplate.style.border = "1px solid green";
-      nin.focus();
+      numberplateError.textContent = "";
+      cartype.focus();
     }
 
     //validating input for cartype
@@ -104,16 +108,18 @@ const numberplateRegex=/^[A-Z]{3}\d{3}[A-Z]$/
     }
   
     //validating input for nin
-    const ninRegex = /^CF ([a-zA-Z0-9]{12})+$/
-    const ninRegex2 = /^CM([a-zA-Z0-9]{12})+$/
-    if (nin.value === "" || !nin.value.match(ninRegex) && !nin.value.match(ninRegex2)) {
+    // const ninRegex = /^(CF [a-zA-Z0-9]{12})+$/
+    // const ninRegex2 = /^CM([a-zA-Z0-9]{12})+$/
+    if (nin.value === "") {
       nin.style.border = " 1px solid red";
       ninError.textContent = "nin required";
       ninError.style = "color: red; font-size:9px;  font-family:Helvetica;";
       nin.focus();
       error++;
+      return false;
     } else {
       ninError.style.border = "1px solid green";
+      ninError.textContent = "";
       carmodel.focus();
     }
   
@@ -127,6 +133,7 @@ const numberplateRegex=/^[A-Z]{3}\d{3}[A-Z]$/
       return false;
     } else {
       carmodelError.style.border = "1px solid green";
+      carmodelError.textContent = "";
       colour.focus();
     }
   
@@ -140,6 +147,7 @@ const numberplateRegex=/^[A-Z]{3}\d{3}[A-Z]$/
       return false;
     } else {
       colour.style.border = "1px solid green";
+      colourError.textContent = "";
       date.focus();
     }
 
@@ -154,6 +162,7 @@ const numberplateRegex=/^[A-Z]{3}\d{3}[A-Z]$/
     }
     else {
       dateError.style.border = "1px solid green";
+      dateError.textContent = "";
       timein.focus();
     }
 
@@ -168,7 +177,8 @@ const numberplateRegex=/^[A-Z]{3}\d{3}[A-Z]$/
     }
     else {
       timeinError.style.border = "1px solid green";
-      parkingtype.focus();
+      timeinError.textContent = "";
+      charge.focus();
     }
 
     //validating input for parkingtype
@@ -182,6 +192,7 @@ const numberplateRegex=/^[A-Z]{3}\d{3}[A-Z]$/
     }
     else {
       parkingtypeError.style.border = "1px solid green";
+      parkingtypeError.textContent = "";
       charge.focus();
     }
   
@@ -195,6 +206,7 @@ const numberplateRegex=/^[A-Z]{3}\d{3}[A-Z]$/
       return false;
     } else {
       chargeError.style.border = "1px solid green";
+      chargeError.textContent = "";
       receipt.focus();
     }
   
@@ -207,10 +219,11 @@ const numberplateRegex=/^[A-Z]{3}\d{3}[A-Z]$/
       error++;
     } else {
       receiptError.style.border = "1px solid green";
+      receiptError.textContent = "";
     }
   
-    // if (error > 0) {
-    //   event.preventDefault();
-    // }
+    if (error > 0) {
+      event.preventDefault();
+    }
   };
   

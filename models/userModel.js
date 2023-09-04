@@ -2,37 +2,38 @@ const mongoose = require("mongoose");
 const passportLocalMongoose = require("passport-local-mongoose");
 
 const userSchema = mongoose.Schema({
-    nameOfEmployee: {
+    fname: {
         type: String,
         required: [true, "add username"],
     },
-    phone: {
+    lname:{
         type: String,
-        required: [true, "add user email"],
-        unique: [true, "email already taken"],
+        required:[true, "add lastname"]
+    },
+    telephone: {
+        type: String
     },
     address: {
         type: String,
-        required: [true, "please add password"],
+    },
+    nin: {
+        type: String,
+        required: [true, "please add nin"],
     },
     gender: {
         type: String,
         enum: ["male", "female"],
         required: [true, "please add gender"],
     },
-    nin: {
+    role: {
         type: String,
-        required: [true, "please add nin"],
+        enum: ["manager", "tyreUnitManager", "batteryUnitManager", "parkingUnitManager"],
+        required: [true, "please add role"],
     },
     email: {
         type: String,
         required: [true, "please add email"],
         unique: [true, "email already taken"],
-    },
-    role: {
-        type: String,
-        enum: ["manager", "tyreUnitManager", "batteryUnitManager", "parkingUnitManager"],
-        required: [true, "please add role"],
     },
     password: {
         type: String,

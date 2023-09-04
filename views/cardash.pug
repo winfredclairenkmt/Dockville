@@ -4,7 +4,7 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   // Boxicons
   link(href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet')
-  link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css")
+  link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css")
   // My CSS
   link(rel='stylesheet' href='/my_css/dash.css')
   title DockVille
@@ -71,7 +71,7 @@ section#content
             | Add
             | User
       li 
-        i.bx.bxs-price 
+        //- i.bx.bxs-price 
         span.text
         h3 Prices 
           table 
@@ -95,27 +95,30 @@ section#content
             tr
               th Name
               th Telephone
-              //- th NIN
+              th NIN
               th Number Plate
               th Model
               th Colour
               th Time-In
               th Time-Out
-              //- th Date
+              th Date
+              th Charge 
+              th Receipt
           tbody
           if cars.length 
             each car in cars
               tr
                 td #{car.drivername}
                 td #{car.telephone}
-                //- td #{car.nin}
+                td #{car.nin}
                 td #{car.numberplate}
                 td #{car.carmodel}
                 td #{car.colour}
                 td #{car.timein} 
                 td #{car.timeout}
-                td #{car.date} 
+                td #{car.date}
+                td #{car.charge}
+                td #{car.receipt}     
+
                   a.btn.btn-primary(href='/api/editCar/edit/'+car._id) Edit 
-    // MAIN
-// CONTENT
-script(src='.js')
+                  //- a.btn.btn-danger(href="/api/deleteCar/"+car._id) Delete
