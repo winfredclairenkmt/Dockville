@@ -5,6 +5,18 @@ const Battery = require('../models/batteryModel');
 router.get('/battery', async(req, res) => {
     res.render('battery.pug');
 });
+
+router.post('/regBatt', async(req, res) => {
+    try{
+        const battery = new Battery(req.body);
+        await battery.save();
+        res.redirect('/api/batterydash');
+    }catch(error){
+        res.status(400).render('battery');
+        console.log(error);
+    }
+})
+
 router.get('/editbattery/edit/:id', async(req, res) => {
     try{
     const vehicle = await Battery.findOne({_id: req.params.id});

@@ -42,20 +42,15 @@ router.post('/editCar/edit', async (req, res) => {
     }
 });
 
-// DELETE route to delete a car by ID
-router.delete('/deleteCar/:id', async (req, res) => {
+router.get("/editCar/receipt/:id", async(req, res) => {
     try {
-        const deleteCar = await Car.findOneAndDelete({ _id: req.params.id });
-
-        if (!deleteCar) {
-            return res.status(404).send('Car not found');
-        }
-
-        res.redirect('/api/cardash'); // Redirect to car dashboard or any other appropriate page
-    } catch (error) {
-        res.status(500).send("Error deleting car.");
+      const vehicle = await Car.findOne({_id: req.params.id });
+      res.render("receipt",{car: vehicle});
+    }catch(error) {
+      res.status(404).send("Sorry cant generate receipt");
+      console.log(error);
     }
-});
+  });
 
 
 module.exports = router;

@@ -54,7 +54,7 @@ section#content
   main
     .head-title
       .left
-        h1 Dashboard
+        h1 Car Dashboard
         ul.breadcrumb
           li
             a(href='#') Dashboard
@@ -72,19 +72,9 @@ section#content
             | User
       li 
         //- i.bx.bxs-price 
-        span.text
+        //- span.text
         h3 Prices 
-          table 
-            thead
-              tr
-                th Car type
-                th Duration
-                th Charge 
-            tbody 
-              tr
-                td Trucks
-                td 
-                td 10
+          p 
               
     .table-data
       .order
@@ -104,6 +94,8 @@ section#content
               th Date
               th Charge 
               th Receipt
+              th Edit 
+              th Print
           tbody
           if cars.length 
             each car in cars
@@ -119,6 +111,7 @@ section#content
                 td #{car.date}
                 td #{car.charge}
                 td #{car.receipt}     
-
+                td 
                   a.btn.btn-primary(href='/api/editCar/edit/'+car._id) Edit 
-                  //- a.btn.btn-danger(href="/api/deleteCar/"+car._id) Delete
+                td
+                  a.btn.btn-warning(href="/api/editCar/receipt/"+car._id) Receipt

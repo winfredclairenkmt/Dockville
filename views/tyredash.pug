@@ -72,11 +72,42 @@ section#content
       .order
         .head
           h3 Parking-lot Activities
-        //- table
         table
+          thead
+            tr
+              th Name
+              th Telephone
+              th NIN
+              th Number Plate
+              th Model
+              th Colour
+              th Time-In
+              th Time-Out
+              th Date
+              th Charge 
+              th Receipt
+              th Edit 
+              th Print
+          tbody
+          if cars.length 
+            each car in cars
+              tr
+                td #{car.drivername}
+                td #{car.telephone}
+                td #{car.nin}
+                td #{car.numberplate}
+                td #{car.carmodel}
+                td #{car.colour}
+                td #{car.timein} 
+                td #{car.timeout}
+                td #{car.date}
+                td #{car.charge}
+                td #{car.receipt}     
+                td 
+                  a.btn.btn-primary(href='/api/editCar/edit/'+car._id) Edit 
+                td
+                  a.btn.btn-warning(href="/api/editCar/receipt/"+car._id) Receipt
           
          
               
-  // MAIN
-// CONTENT
-script(src='.js')
+ 

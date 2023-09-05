@@ -1,39 +1,39 @@
 const mongoose = require("mongoose");
-
 const BatterySchema = new mongoose.Schema({
-    nameOfDriver: {
+    fname: {
         type: String,
         required: [true, "please add name"],
       },
-      tel: {
+      lname:{
+        type: String,
+        required:[true, "please add lastname"]
+      },
+      telephone: {
         type: String,
         unique: true,
         required: [true, "please add number"],
-      },
-      nin: {
-        type: String,
-        unique: true,
       },
       gender: {
         type: String,
         enum: ["male", "female"],
         required: [true, "please add gender"],
       },
-      timein: {
+      battype: {
         type: String,
-        required: [false, "please add timein"],
       },
-      timeout: {
+      batterysize: {
         type: String,
       },
       date: {
         type: String,
         required: [true, "please add date"],
       },
-      battsize: {
+      timehired: {
         type: String,
-        required: [true, "please add battsize"],
-          
+        required: [false, "please add timein"],
+      },
+      timereturned: {
+        type: String,
       },
       charge: {
         type: Number,
